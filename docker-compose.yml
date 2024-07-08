@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:16.1
+    ports:
+      - 5437:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123
+      POSTGRES_DB: raffle
+  mysql:
+    image: mysql:latest
+    environment:
+      MYSQL_USER: mysql
+      MYSQL_PASSWORD: 123
+      MYSQL_DATABASE: raffle
+    ports:
+      - 3306:3306

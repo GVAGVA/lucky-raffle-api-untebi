@@ -1,0 +1,40 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("PG_DATABASE_URL")
+}
+
+model User {
+  id       Int     @id @default(autoincrement())
+  username String  @unique
+  balance  Float   @default(0)
+  Prize    Prize[]
+  Win      Win[]
+}
+
+model Prize {
+  id       Int    @id @default(autoincrement())
+  name     String
+  value    Float
+  winner   User?  @relation(fields: [winnerId], references: [id])
+  winnerId Int?
+  Win      Win[]
+}
+
+model Win {
+  id       Int   @id @default(autoincrement())
+  userId   Int
+  prizeId  Int
+  winValue Float
+  user     User  @relation(fields: [userId], references: [id])
+  prize    Prize @relation(fields: [prizeId], references: [id])
+}

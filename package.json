@@ -1,0 +1,31 @@
+{
+  "name": "raffle-api",
+  "version": "1.0.0",
+  "description": "The objective of this challenge is to assess your skills in creating a functional and efficient Node.js server, handling complex logic, working with MySQL databases, and adhering to RESTful principles.",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node -r tsconfig-paths/register src/index",
+    "dev": "nodemon --exec ts-node -r tsconfig-paths/register src/index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Chien Ta",
+  "license": "ISC",
+  "devDependencies": {
+    "@prisma/client": "^5.16.1",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/mysql": "^2.15.26",
+    "@types/node": "^20.14.10",
+    "nodemon": "^3.1.4",
+    "prisma": "^5.16.1",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.5.3"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "mysql": "^2.18.1",
+    "tslib": "^2.6.3"
+  }
+}
